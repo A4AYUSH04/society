@@ -1,0 +1,105 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-border: var(--border);
+  
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+
+  /* Override theme colors so all cards, borders, and buttons map to the new palette */
+  --color-white: var(--card);
+  --color-gray-50: var(--background);
+  --color-gray-100: var(--border);
+  --color-gray-200: var(--border);
+  --color-gray-700: var(--border);
+  --color-gray-800: var(--card);
+  --color-gray-900: var(--background);
+
+  /* Redirect indigo assets to the primary/secondary Steel Blue and Ice colors */
+  --color-indigo-50: var(--secondary);
+  --color-indigo-100: var(--secondary);
+  --color-indigo-600: var(--primary);
+  --color-indigo-700: var(--primary-dark);
+  --color-indigo-950: var(--background-dark);
+}
+
+:root {
+  /* Steel Blue & Ice (Light Mode) */
+  --background: #f0f4f8;            /* Ice blue cool gray background */
+  --foreground: #102a43;            /* Deep steel blue dark text */
+  
+  --card: #ffffff;                  /* Pure white card backgrounds */
+  --card-foreground: #102a43;
+  
+  --primary: #3182ce;               /* Steel blue primary actions */
+  --primary-dark: #2b6cb0;
+  --secondary: #ebf8ff;             /* Ice blue soft background details */
+  --border: #bcccdc;                /* Steel blue soft borders */
+  --background-dark: #0f1d2a;
+  
+  --radius: 0.85rem;
+}
+
+.dark {
+  /* Steel Navy & Ice (Dark Mode) */
+  --background: #0f1d2a;            /* Cool steel navy background */
+  --foreground: #f0f4f8;            /* Ice blue white text */
+  
+  --card: #1c2d3d;                  /* Cool steel navy card background */
+  --card-foreground: #f0f4f8;
+  
+  --primary: #4299e1;               /* Bright ice steel blue primary */
+  --primary-dark: #63b3ed;
+  --secondary: #243b53;             /* Soft steel navy secondary background */
+  --border: #334e68;                /* Balanced dark steel borders */
+  --background-dark: #0b132b;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: 'Inter', -apple-system, sans-serif;
+  transition: background-color 0.25s ease, color 0.25s ease;
+  min-height: 100vh;
+}
+
+/* Glassmorphism custom styling utilities */
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(188, 204, 220, 0.4);
+}
+
+.dark .glass {
+  background: rgba(28, 45, 61, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(51, 78, 104, 0.4);
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 999px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #334e68;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3182ce;
+}
